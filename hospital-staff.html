@@ -6,6 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CityCare Medical Center Email Signature</title>
     <style type="text/css">
+        /* Base Styles for the hover effect */
+        .profile-image-container {
+            position: relative; /* Required for positioning the ::before pseudo-element */
+            overflow: hidden; /* Keeps the overlay contained within the circle */
+            cursor: pointer; /* Changes the cursor to a pointer on hover */
+            transition: all 0.5s ease; /* Adds a smooth transition for the container's scale and shadow */
+            border-radius: 50%; /* Maintains the circular shape */
+        }
+
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%; /* Large enough to cover the container when rotated */
+            height: 200%;
+            background: linear-gradient(
+                0deg,
+                transparent,
+                transparent 30%,
+                rgba(0,114,206,0.3)
+            );
+            transform: rotate(-45deg) translateY(-100%); /* Initial position, hidden above the container */
+            opacity: 0;
+            transition: all 0.5s ease; /* Adds a smooth transition for the overlay */
+        }
+        
+        .profile-image-container:hover {
+            transform: scale(1.05); /* Scales the container up slightly */
+            box-shadow: 0 0 20px rgba(0,114,206,0.5); /* Adds a glowing box shadow */
+        }
+        
+        .profile-image-container:hover::before {
+            opacity: 0;
+            transform: rotate(-45deg) translateY(0); /* Moves the gradient overlay into view */
+        }
+
+        .profile-image-container img {
+            transition: all 0.5s ease; /* Ensures a smooth transition on the image itself */
+        }
+        
         /* Responsive Styles */
         @media screen and (max-width: 600px) {
             .signature-container {
@@ -68,7 +109,7 @@
                                     <td style="padding-bottom: 5px;">
                                         <h2 style="margin: 0; font-size: 18px; font-weight: 700; color: #0072CE;">
                                             Dr. Jane Smith
-                                            <img src="https://raw.githubusercontent.com/MbonuJennifer/Email-Signatures/main/Assets/care_18130618.gif" alt="Care Gif" width="30" height="30" style="vertical-align: middle; margin-left: 5px;">
+                                            <img src="https://raw.githubusercontent.com/MbonuJennifer/Email-Signatures/main/Assets/care-no-bg.gif" alt="Care Gif" width="30" height="30" style="vertical-align: middle; margin-left: 5px;">
                                         </h2>
                                         <p style="margin: 0; font-size: 14px; font-weight: 400; color: #555555;">Cardiologist</p>
                                     </td>
